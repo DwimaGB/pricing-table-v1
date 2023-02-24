@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: 'Open Sans', sans-serif;
+    --primary-color: hsl(254, 55%, 37%);
+    --primary-color-100: hsl(254, 55%, 97%);
+    --primary-color-200: hsl(254, 55%, 93%);
+    --primary-color-300: hsl(254, 55%, 77%);
+    --primary-color-500: hsl(254, 55%, 23%);
+    --primary-color-900: hsl(254, 55%, 9%);
+}
+
+
+body{
+    min-height: 100vh;
+    background-color: var(--primary-color-200);
+    color: var(--primary-color);
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    margin-block: 4rem;
+}
+
+.container{
+    background-color: hsl(0, 0%, 100%);
+    width: 80%;
+    max-width: 900px;
+    /* min-width: 400px; */
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 1.25rem;
+    margin: 0 3rem 3rem 3rem;
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding: 2.5rem;
+}
+
+/* Tabs */
+
+.tabs{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    /* padding-block: 2.5rem;
+    border-bottom: 3px solid #eee; */
+}
+
+.tabs p{
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--primary-color-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabs p:hover{
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.line{
+    height: 3px;
+    width: 100%;
+    background-color: #eee;
+    transform: translateY(-100%);
+    /* z-index: -1; */
+}
+
+
+ /* Version */
+
+.version{
+    align-self: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.toggle-option{
+    color: hsl(0, 0%, 100%);
+    background-color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 1000px;
+
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+
+
+.icon{
+    width: 42px;
+}
+
+
+/* Session */
+.session-card{
+    text-align: center;
+    align-self: center;
+    background-color: var(--primary-color-100);
+
+    width: 55%;
+    padding-block: 3rem;
+}
+.session-card .title{
+    text-transform: uppercase;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.session-card .sessions{
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+/* Range */
+
+
+.bar{
+    --range: 30;
+    height: 20px;
+    width: 100%;
+    background-color: hsl(0, 0%, 97%);
+    border-radius: 1000px;
+    border: 1px solid hsl(0, 0%, 87%);
+    position: relative;
+
+    margin-bottom: 1rem;
+}
+
+.bar .current-range{
+    position: absolute;
+    height: inherit;
+    border-radius: inherit;
+    width: calc(var(--range) * 1%);
+    background: linear-gradient(to right, var(--primary-color-900), var(--primary-color-500), var(--primary-color));
+}
+
+.bar .head{
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 2px solid hsl(0, 0%, 100%);
+    
+    position: absolute;
+    left: calc(var(--range) * 1%);
+    transform: translate(-50%, -20%);
+
+    transition: transform 200ms;
+}
+.bar .head:hover{
+    cursor: pointer;
+    transform: scale(1.1) translate(-50%, -20%) ;
+}
+
+.range{
+    display: flex;
+    justify-content: space-between;
+}
+.range span{
+    color: hsl(0, 0%, 57%);
+    font-weight: 600;
+}
+
+/* Pricing Cards */
+
+.pricing-cards{
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+
+}
+
+.pricing-card{
+    flex: 1 1 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    background-color: var(--primary-color-100);
+    border-radius: 11px;
+    padding: 2rem 4rem;
+
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+    transition: transform 300ms;
+
+}
+
+.pricing-card:hover{
+    transform: translateY(-6px);
+}
+
+.pricing-card:last-of-type{
+    border-radius: 0 0 11px 11px;
+}
+
+.pricing-card:last-of-type:before{
+    content: "SAVE UP TO 16%";
+    width: 99%;
+    text-align: center;
+    color: hsl(0, 0%, 100%);
+    background: linear-gradient(to right, var(--primary-color-900), var(--primary-color-500), var(--primary-color));
+    padding: 0.4rem;
+    border-radius:  11px 11px 0 0;
+    position: absolute;
+    top: 0;
+    transform: translateY(-90%);
+}
+
+.pricing-card p{
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.pricing-card .price{
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+}
+
+hr{
+    width: 30%;
+    border: 1px solid hsl(0, 0%, 77%);
+}
+
+.pricing-card .features{
+    text-align: center;
+    list-style: none;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 1rem;
+}
+
+
+/*Description  */
+
+.description p {
+    color: #333;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+
+/* Buttons */
+.btn{
+    border: none;
+    background-color: var(--primary-color);
+    color: hsl(0, 0%, 100%);
+    font-size: 0.8rem;
+    padding: 1rem 2rem;
+    border-radius: 11px;
+
+    transition: transform 200ms;
+}
+
+.btn:hover{
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+/* helper class */
+
+.tabs .current-tab{
+    align-self: stretch;
+    color: var(--primary-color);
+    width: 124px;
+    border-bottom: var(--primary-color) 3px solid;
+    z-index: 1;
+}
+
+
+.toggle-option .current-version{
+    background-color: hsl(0, 0%, 100%);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 1000px;
+}
